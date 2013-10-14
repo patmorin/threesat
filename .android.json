@@ -1,0 +1,1 @@
+{"layout": "internal", "orientation": "landscape", "package": "ca.cglab.triangulate", "include_pil": false, "expansion": false, "name": "Triangulate!", "source": true, "icon_name": "Triangulate!", "version": "0.0", "permissions": ["VIBRATE"], "include_sqlite": false, "numeric_version": "0"}

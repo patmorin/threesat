@@ -1,0 +1,11 @@
+<ipestyle>
+  <gradient name="zero" type="axial" extend="yes" coords="75 0 325 0">
+    <stop offset="0.05" color="0.647 0.165 0.165"/>
+    <stop offset="0.95" color="0.565 0.933 0.565"/>
+  </gradient>
+  <gradient name="one" type="axial" extend="yes" coords="75 0 325 0">
+    <stop offset="0.05" color="1 0.4 0"/>
+    <stop offset="0.95" color="1 1 0.4"/>
+  </gradient>
+</ipestyle>
+
