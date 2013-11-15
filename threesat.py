@@ -174,7 +174,7 @@ class UserInterface(object):
         pygame.time.set_timer(TIMEREVENT, 1000 // FPS)
         
     def updated_formula(self):
-        """Call this when the formula changes changes"""
+        """Call this when the formula changes"""
         pygame.time.set_timer(TIMEOUTEVENT, self.info.timeout*1000)
         # compute the on-screen locations of the variables            
         n = self.info.n
@@ -191,19 +191,22 @@ class UserInterface(object):
 
         # compute the on-screen locations of the clauses
         self.rows = int(math.ceil(m/(n-1)))
-        self.vert_gap = (self.height-self.bottom_pad - varh - oh*self.rows) // (self.rows+1)
+        self.vert_gap = (self.height-self.bottom_pad 
+                         - varh - oh*self.rows) // (self.rows+1)
         self.clause_c = []
         for i in range(m):
             r = i // (n-1)
             c = i % (n-1)
             self.clause_c.append(( (self.horz_gap+varw)*(c+1) + self.horz_gap//2,
-                      self.height-self.bottom_pad-varh - (self.vert_gap+oh)*(r+1)) )
+                     self.height-self.bottom_pad-varh 
+                      - (self.vert_gap+oh)*(r+1)) )
         self.clause_tl = [ (p[0]-ow//2, p[1]-oh//2) for p in self.clause_c ] 
 
         self.vert_wire_gap = self.vert_gap // (3*(n-1)+1)
         self.horz_wire_gap = ow/4
 
     def run(self):
+        """This is the game's event handling loop"""
         while True:
             
             ev = pygame.event.wait()
