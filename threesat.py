@@ -108,6 +108,9 @@ WON_STATE = 2
 PLAYING_STATE = 1
 GAMEOVER_STATE = 3
 
+def load_image(filename):
+    """Load an image from the images directory"""
+    return pygame.image.load(os.path.join('images', filename))
 
 class UserInterface(object):
     """This is our game's user interface"""
@@ -144,14 +147,14 @@ class UserInterface(object):
 
         # load our images
         imgdir = 'images'
-        self.or_img = [pygame.image.load(os.path.join(imgdir, 'or0.png')), \
-                        pygame.image.load(os.path.join(imgdir, 'or1.png')) ]
-        self.notr_img = [pygame.image.load(os.path.join(imgdir, 'not0.png')), \
-                         pygame.image.load(os.path.join(imgdir, 'not1.png')) ]
+        self.or_img = [load_image('or0.png').convert_alpha(), \
+                       load_image('or1.png').convert_alpha() ]
+        self.notr_img = [load_image('not0.png').convert_alpha(), \
+                         load_image('not1.png').convert_alpha() ]
         self.notl_img = [pygame.transform.flip(self.notr_img[i], True, False) \
                          for i in range(2)] 
-        self.var_img = [pygame.image.load(os.path.join(imgdir, 'var0.png')), \
-                        pygame.image.load(os.path.join(imgdir, 'var1.png'))]
+        self.var_img = [load_image('var0.png').convert_alpha(), \
+                        load_image('var1.png').convert_alpha()]
 
         # load our font
         fontfile = pygame.font.match_font('gfsneohellenic,sans')
@@ -235,6 +238,9 @@ class UserInterface(object):
             # When the user hits back, ESCAPE is sent. Handle it and end
             # the game.
             elif ev.type == pygame.KEYDOWN and ev.key == pygame.K_ESCAPE:
+                break
+
+            elif ev.type == pygame.QUIT:
                 break
 
     def new_round(self):
